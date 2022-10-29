@@ -1,0 +1,231 @@
+body {
+    width: 100%;
+    min-width: 320px;
+    max-width: 640px;
+    margin: 0 auto;
+    background: #fff;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    line-height: 1.5;
+    color: #666;
+    /* background-color: #ccc; */
+}
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+
+input {
+    -webkit-appearance: none;
+}
+
+
+/*禁用长按页面时的弹出菜单*/
+
+img,
+a {
+    -webkit-touch-callout: none;
+}
+
+p {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    color: #666;
+    font-size: 12px;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img {
+    vertical-align: top;
+}
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+/* 父盒子给了高，里面子盒子浮动就不会有清除浮动的问题 */
+.app {
+    height: 45px;
+    color: #fff;
+}
+.app ul li {
+    float: left;
+    height: 45px;
+    background-color: #333;
+    /* list-style: none; */
+    text-align: center;
+    line-height: 45px;
+    /* 垂直居中要加在img上面 */
+    /* vertical-align: middle; */
+}
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+.app ul li:nth-child(1) img {
+    width: 10px;
+    height: 10px;
+    /* 在这里给img水平居中没有用，要在li里面 */
+    /* text-align: center; */
+    vertical-align: middle;
+}
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+.app ul li:nth-child(2) img {
+    width: 30px;
+     /* 垂直居中要加在img上面,图片默认与文字基线对齐 */
+    vertical-align: middle;
+}
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #f63515;
+}
+
+/* 搜索栏 */
+.search-wrap {
+    /* 在移动端布局固定定位一定要设置最小宽度和最大宽度 */
+    /* relative属于文档流，文档流中元素不设置宽度时会继承父亲宽度。
+    fixed和absolute都脱离了文档流，脱离文档流的元素不设置宽度时，
+    元素宽度由内容撑开，而不继承父亲宽度 */
+    position: fixed;
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    height: 44px;
+    overflow: hidden;
+}
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* background-color: pink; */
+    width: 40px;
+    height: 44px;
+}
+.search-btn::before {
+    content: "";
+    /* 伪类元素是行内元素,要改display */
+    display: block;
+    /* 设置宽和高,不然背景图片不显示 */
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png) no-repeat;
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* background-color: purple; */
+    width: 40px;
+    height: 44px;
+    line-height: 44px;
+    /* text-align: center; */
+    color: #fff;
+}
+.search {
+    position: relative;
+    /* 标准流盒子如果不给宽度,子盒子默认和父亲一样宽,且兄弟盒子都有绝对定位,所以不占位置
+    标准流盒子会铺满父盒子 */
+    /* width: 100%;  给宽度盒子就撑出来了*/ 
+    height: 30px;
+    /* 子盒子加了margin-top,会发生外边距合并(塌陷),需要给父盒子(.search-wrap)加overflow=hidden */
+    margin: 7px 50px;
+    /* background-color: skyblue; */
+    border-radius: 15px;
+    background-color: #fff;
+}
+.jd-icon {
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    width: 20px;
+    height: 15px;
+    /* background-color: pink; */
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+.jd-icon::after {
+    position: absolute;
+    top: 1px;
+    left: 24px;
+    content: "";
+    display: block;
+    width: 1px;
+    height: 13px;
+    background-color: #ccc;
+}
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 47px;
+    width: 18px;
+    height: 15px;
+    /* background-color: pink; */
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    background-size: 200px auto;
+}
+.slider img {
+    width: 100%;
+    
+}
+.brand {
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+    transform: translateY(-15px);
+}
+.brand div {
+    float: left;
+    width: 33.33%;
+}
+.brand div img {
+    width: 100%;
+}
+nav a{
+    float: left;
+    /* 有了浮动就不用转换display了 */
+    /* display: block; */
+    width: 20%;
+    text-align: center;
+}
+nav a img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+/* news */
+.news-box {
+    margin-top: 20px;
+}
+.news-box a {
+    float: left;
+    box-sizing: border-box;
+}
+.news-box a:nth-child(1){
+    width: 50%;
+}
+.news-box a:nth-child(n+2) {
+    width: 25%;
+    /* 给a加上盒子模型，这样盒子就不会被border撑开了 */
+    border-left: 1px solid #ccc;
+}
+/* 要先设置父盒子宽度，然后让图片宽度100% */
+.news-box img {
+    width: 100%;
+}
